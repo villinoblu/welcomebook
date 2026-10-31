@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Book - Villino Blu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #2d3748; width: 100%; overflow-x: hidden; }
+        
+        .header {
+            background: linear-gradient(135deg, #0f223f, #1a365d);
+            color: white;
+            padding: 3rem 1rem 3.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Selettore lingua */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 4px;
+            border-radius: 20px;
+            border: 1px solid #c5a059;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: #c5a059;
+            color: #0f223f;
+        }
+
+        .logo img { max-width: 150px; height: auto; margin-bottom: 1rem; }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; color: #ffffff; letter-spacing: 1px; }
+        .header p { font-size: 0.95rem; color: #e2e8f0; max-width: 600px; margin: 0 auto; }
+
+        .container { max-width: 1100px; margin: -1.5rem auto 2.5rem; padding: 0 1rem; position: relative; z-index: 10; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.25rem;
+            width: 100%;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            text-decoration: none !important;
+            color: #1a365d !important;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(26,54,93,0.18); }
+
+        .card-img {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            background-color: #e2e8f0;
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-title {
+            padding: 1.1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Gestione Visibilità Lingua (Default EN) */
+        .lang-it { display: none; }
+        .lang-en { display: inline; }
+
+        body.show-it .lang-it { display: inline; }
+        body.show-it .lang-en { display: none; }
+
+        footer {
+            background: #0f223f;
+            color: #cbd5e0;
+            padding: 2.5rem 1rem 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        footer a { color: #f4ecdf; text-decoration: none; }
+
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: 1fr; }
+            .lang-switch { top: 10px; right: 10px; }
+        }
+    </style>
+</head>
+<body class="show-en">
+
+    <div class="header">
+        <div class="lang-switch">
+            <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
+        </div>
+
+        <div class="logo">
+            <a href="https://www.villinoblu.it" target="_blank">
+                <img src="https://sites.google.com/sitesv-images-rt/AMxu72t-pQv0ixab8n0JtHlMdJk2r0a0cq9TvFrHVN6NFgGCoEufzdU1WmSMfdmMM90xTNEWTd6DTn-m01-5MuqMV35eEdHCPaaN52Roivqtb2rN5Os3IkgOjGPDV-EsHsPh7T7GBS6iL3gjyK-c4ePAniLbJyxS27KE5X1AZyKrwYFPCeAQPokoEougRSMpiUEuFrtsBZVB5tPARn3u4gmDDYZUCHtZzSct91HMcg=w1280" alt="Villino Blu Logo">
+            </a>
+        </div>
+        <h1>WELCOME BOOK</h1>
+        <p>
+            <span class="lang-en">Useful information for your stay at Villino Blu</span>
+            <span class="lang-it">Indicazioni utili per il vostro soggiorno presso Villino Blu</span>
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+
+            <!-- 1. House Rules -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/house-rules-regole-della-casa" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72uieoEsiapsnvvrke9zakeSPKIp4Uaoq8ECwtfmvlt1c9ijP0VsxQv-j17B9_6hLMeC8unYPdGi2r6ranY1AicUxx_xflQ2KNy6ea10Lpub9wKuRunt7aSqbjZtZUpxtpLPC_qxpYlJVLGNPsvKFfHDUCxXJQk2ty4dULzY5DLiOnOf8EU-bH2zlV_a=w1280" alt="House Rules">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">House Rules</span>
+                    <span class="lang-it">Regole della Casa</span>
+                </div>
+            </a>
+
+            <!-- 2. Useful Numbers -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/useful-numbers-numeri-utili" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72sUR0cD3BFa_3xwJqxIymr9XNhhQVtH4hwhLC2zD9e7EcyVLWpj0sa0AZoMAB4eraG9cD9RsNhUpVnTmlc0AMLp_l2hBqJfjQMwyIMFRyND3t-PNOqkyDuCR7kjhGQqZUqlIvbx44a-EkcOLIzcuzmE1JqWUOv3-aERU4fckkML_2HHdQ_XUQIgYUrTFv0=w1280" alt="Useful Numbers">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Useful Numbers</span>
+                    <span class="lang-it">Numeri Utili</span>
+                </div>
+            </a>
+
+            <!-- 3. Tourist Tax -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/tourist-tax-tassa-di-sogiorno" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72uEy2xzppbDJYungSbRD-ibi36_iqM-NJxdl3AZgxPyGfjtM7IEZy1FggKUPPSN4zaxn5ovBl9w8MYKVYqLuqG4YedanLsvsnVJR8odgbfUtpEv9mSRIzv7c8WvK7beRbS-q3Rcoigs7gT9YdVFMkrVSk6ZjqX5yswOOMBd-nO7v1g-7ivur35VJDKM=w1280" alt="Tourist Tax">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Tourist Tax</span>
+                    <span class="lang-it">Tassa di Soggiorno</span>
+                </div>
+            </a>
+
+            <!-- 4. Weekly Market -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/weekly-market-mercato-settimanale" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72uPsuAPGgugQjeWNSsti0a1cGLvBz5filnHBm4bS9_3kMKA3LV75XmGJS55_YnUpkgeMPKW4d0juDNzVMtyJIDINwgvX8SRdQtSzTsQvOrjcBiziLdhtY9WXGh_Ls-yy5BB0EbxiBEUFBM8u37AAOSCD1PHpNmK-9pEiSqXNLfnZf2g7Pw0dKVczAKX=w1280" alt="Weekly Market">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Weekly Market</span>
+                    <span class="lang-it">Mercato Settimanale</span>
+                </div>
+            </a>
+
+            <!-- 5. Rubbish -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/rubbish-spazzatura" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72vDdySRYvstllWkaDoeMVedgDKXYfMzM1ldkz49HEN5mYKhox0K91Bd5I3E7I8gvfqAEUczn1YcpWcwTyJ2q-d797uZ4lsV3nUFHVn-0aa3506rD4DzGqaNcYKMqVaA3OH3JvV-qSmeRogiIVmaJZ2z-seAR5HW8xZRizgcktXnm9j1xExDNpnuR2-0PHs=w1280" alt="Rubbish">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Rubbish & Recycling</span>
+                    <span class="lang-it">Spazzatura</span>
+                </div>
+            </a>
+
+            <!-- 6. Pool Cleaning -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/pool-cleaning-pulizia-piscina" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72tiahzGSIOb807c5XhfVZuv-f26NGlMJ0UaVxJpLO8qd5yIjq3lq7jsdQnpd1qU1O3VHwG6XH0BJXcPYjeCHwrPiYzJYQEKNH3YZhBCnwUUluy0xSkhK1GRn6af6MN2ue9yJL0nDpATThbAp5p9vmMNMQgln8j36PXQmHlcgueMD11lj9RNMa4UGE_6=w1280" alt="Pool Cleaning">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Pool Cleaning</span>
+                    <span class="lang-it">Pulizia Piscina</span>
+                </div>
+            </a>
+
+            <!-- 7. Wi-Fi -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/wi-fi" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72srdxWVxQ-gq1Ns2TxZRII2_jDHGkmmk6CZBVNKLQ99vRRDua-u325h1YQKwZDJbAbyu6XkQMEPmQ4fN3P-izir7tIWQ-krX2NQWI7IRJGlM2EhRk-yATCIwYTkhcZwtdkW8bub0Nm_myxXbJHM8RfflLnMM4uBMG5tt-HuVibiwspvnYPCcnD2Qp1iIrY=w1280" alt="Wi-Fi">
+                </div>
+                <div class="card-title">Wi-Fi</div>
+            </a>
+
+            <!-- 8. Shop Near Here -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/super-mrket-shop-near-here-acquisti-nelle-vicinanze" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72udkgUm54tsjACFL6-Hq7C5YMrN4EGErOtnN_Z2TkRBFrhW7YZylean9u19EMoGQSbGb29taEQ55TeVaLl_zB_V74WW0pRPKoRK9MDUGv5S_61KXH47HjfxOizaqkFZqq6cmu_jy5i7Qkye5uNyyAIUww-uNhBeV3iqUkuqkbIjJKAjlXbE8S_1C2SmUAQ=w1280" alt="Shop Near Here">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Shop Near Here</span>
+                    <span class="lang-it">Acquisti nelle Vicinanze</span>
+                </div>
+            </a>
+
+            <!-- 9. Rental Bike and Scooter -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/rental-bike-and-scooter-noleggio-bici-e-scooter" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72t9dBeszGnqBLoKk8RnI8Tg-BNEqYvPqCTCPl5U6CjFhi1_M0SJdvheBwxViP7XEPPdAs_V-ejBT9_woDaRHfnZachwf0Ob8R5o8rJWyYB5Owg7Rvr2gcS61kvZ1Cd8GWXBjAFAuOyI1337H2B-rfaR8hTqXr7lmVxZPWRYbfJSwxrI0p_CCo51KA=w1280" alt="Rental Bike">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Rental Bike & Scooter</span>
+                    <span class="lang-it">Noleggio Bici e Scooter</span>
+                </div>
+            </a>
+
+            <!-- 10. Heating Rules -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/eathing-rules-regole-per-il-riscaldamento" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72t0ta-FRkKi7mOg-V89_SI0V5RMXlYucyIO4UQsuT6XS0bBIs2lt-2_wPOeOzqKwrTwqi0hsa5sPQG5C10236flYEI6dthRwmww6uXGPEez_vFuTUREWMCNREs7vXdlmcQtafM-V2ioQt_xalLlbm7XgHyDk0ooKQ6z5y9ajxaGPV-m-j1tmTLdvVib=w1280" alt="Heating Rules">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Heating Rules</span>
+                    <span class="lang-it">Regole Riscaldamento</span>
+                </div>
+            </a>
+
+            <!-- 11. Emergency -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/emergency-emergenze" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72sh0KvydtPOBd7WpbiPexCBzppXn_sDe9cFBgSQZ-GmWrcdsy3vQTmV8X-udLuEVkaeuYfrRVx0Bru6aMh4YmYQfSYpfUS7z799qjVJpb2axc4WGLjbLeC96GmEVUCl2li8_wDwDwZyEXH87Pfqbzqgr1NqJujqjQV6Qn-ti8j6XImhVG53e0K23HzN=w1280" alt="Emergency">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Emergency Contacts</span>
+                    <span class="lang-it">Emergenze</span>
+                </div>
+            </a>
+
+            <!-- 12. How to Reach -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/how-to-reach-come-arrivare" class="card">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72tybTsKK-URcBpyUpvrMabHXMD0yleSAexEGsJXnniZ1tSDlfnHBFPa9vaKeOICc58p6CNV1rOG100sXLuAXZoh68JApiPDxSyZGyWFOAQTAnpLeyhjKE9ilZv7JQJ0ZzyanUR6lc-Jtl1s32_QuWX0pc9sm_DIL2P2s7M99XJry3sbWFy6P1rUf-QNrw4=w1280" alt="How to Reach">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">How to Reach Us</span>
+                    <span class="lang-it">Come Arrivare</span>
+                </div>
+            </a>
+
+            <!-- 13. Instruction Manuals -->
+            <a href="https://sites.google.com/view/villinobluholidaysintuscany/instruction-manuals-manuali-di-istruzioni" class="card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; width: 100%;">
+                <div class="card-img">
+                    <img src="https://sites.google.com/sitesv-images-rt/AMxu72vw7XyGmewpKnecHNcwkVa9reeMIW43msKqhjPamXrXF33Zmi0J5SUUt9O5Kj7bAR2fA9jJx0lLexoLjqhh5D7-TTU3Vv342nPRc9ZYsefvAbGWiu31Q7TrPfp5HaaggQHavn9iLNl-LjAEXawm4prTmZeHXP3ZyWIFp2rIj0dIU1F0gj9T5XdZMX_cuvY=w1280" alt="Instruction Manuals">
+                </div>
+                <div class="card-title">
+                    <span class="lang-en">Appliance Manuals</span>
+                    <span class="lang-it">Manuali Elettrodomestici</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Villino Blu di Redditi Letizia</strong> &bull; Loro Ciuffenna (Arezzo)</p>
+        <p><a href="https://www.villinoblu.it" target="_blank">www.villinoblu.it</a></p>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            if(lang === 'it') {
+                document.body.className = 'show-it';
+                document.getElementById('btn-it').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            } else {
+                document.body.className = 'show-en';
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-it').classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
